@@ -1,104 +1,118 @@
+// console.log(typeof null); //object
+
 const person = {
-  name: 'Vladilen',
-  age: 29,
-  isYoutuber: true,
-  languages: ['ru', 'en'],
+  name: "Bakhodir",
+  age: 17,
+  isYoutuber: false,
+  langs: ["ru", "en", "uz"],
   address: {
-    city: 'Saint-Petersburg',
-    street: 'Nesvky',
+    city: "Tashkent",
+    country: "Uzbekistan",
   },
-  'complex key': 'complex value',
-  ['key_' + 21 * 2]: 'computed value',
+  "complex key": "complex",
+  ["key_" + 21 * 2]: "computed value",
   greet() {
-    console.log('Greet from person', this)
+    console.log("Greet from person");
   },
   arrow: () => {
-    console.log('Person Arrow', this)
+    console.log(this); // Не создает свой контекст по умолчанию при использовании стрелочной функции
+    console.log("Arrow from person");
   },
   info() {
-    console.log('Person name', this.name)
+    console.log(this);
+    console.log("hello", this.age);
   },
-}
+};
 
-// console.log(person.address)
-// const addressKey = 'address'
-// console.log(person[addressKey])
-// console.log(person['complex key'])
-// person.age++
-// person.languages.push('de')
-// console.log(person.languages)
-// person.address = undefined
-// delete person.address
-// console.log(person)
+// console.log(person);
+// console.log(person.address);
+// const addressKey = "address";
+// console.log(person[addressKey]);
+// console.log(person["address"]);
+// console.log(person["complex key"]);
+// person.greet();
+// person.arrow();
+// person.info();
+// person.age++;
+// person.langs.push("de");
+// console.log(person.age);
+// console.log(person.langs);
+// // person.address = undefined;
+// delete person.address;
+// console.log(person);
 
-// Destructoring
-// const age = person.age
-// const name = person.name
-// const languages = person.languages
-
-// const name = 'Petr'
-
-// const { age, name: firstName = 'TEST', languages } = person
-
-// console.log(languages, age, firstName)
+// == Destructoring
+// const age = person.age;
+// const langs = person.langs;
+// const address = person.address;
+// const name = "bryan";
+// const { age, name: firstName = "test", langs } = person; // name = firstName
+// console.log(age, langs, firstName);
 
 // for (let key in person) {
+//   // console.log(key);
+//   // console.log(person[key]);
+
 //   if (person.hasOwnProperty(key)) {
-//     console.log(person[key])
+//     console.log(person[key]);
 //   }
 // }
 
-// Object.keys(person).forEach((key) => {
-//   console.log(person[key])
-// })
+// == Spread
+// const newPerson = {
+//   ...person,
+//   name: "test",
+//   address: {
+//     city: "Tashkent",
+//     country: "Uzbekistan",
+//   },
+// };
+// console.log(newPerson);
 
-const logger = {
-  keys(withText = true) {
-    if (withText) {
-      console.log('Object keys:', Object.keys(this))
-    } else {
-      console.log(Object.keys(this))
-    }
-  },
+// console.log(Object.keys(person));
 
-  keysAndValues() {
-    Object.keys(this).forEach((key) => {
-      console.log('Key:', key)
-      console.log('Value:', this[key])
-    })
-  },
-}
+// Object.keys(person).forEach((key) => console.log(person[key]));
 
-// const bound = logger.keys.bind(person)
-// bound(false)
-// logger.keys.call(person, false)
-// logger.keys.apply(person, [false])
+// const logger = {
+//   keys() {
+//     console.log(Object.keys(this));
+//   },
+//   keysAndValues() {
+//     Object.keys(this).forEach((key) => {
+//       console.log(key);
+//       console.log(this[key]);
+//     });
+//   },
+// };
 
-class Human {
-  static isHuman = true
+// // logger.keysAndValues.bind(person)(); // autobind with func ()
+// logger.keys.call(person);
+// logger.keys.apply(person);
+
+class HumanBeing {
+  isHuman = true;
 
   humanGreet() {
-    console.log('greet from human')
+    console.log("helloa  " + this.name);
   }
 
   toString() {
-    console.log('to string')
+    console.log("toString");
   }
 }
 
-class Person extends Human {
+class Person extends HumanBeing {
   constructor(name, age) {
-    super()
-    this.name = name ?? 'Undefined name'
-    this.age = age ?? 'Undefined age'
+    super();
+    this.name = name ?? "Undefined";
+    this.age = age ?? "Undefined";
   }
-
   sayHello() {
-    console.log('Hello from ', this.name)
+    console.log("hello " + this.name);
   }
 }
 
-const person1 = new Person('Vladilen', 30)
-const person2 = new Person('Elena', 21)
-
-// console.log(Person.isHuman)
+const newPerson = new Person("bakha", 17);
+console.log(newPerson.toString());
+newPerson.sayHello();
+newPerson.humanGreet();

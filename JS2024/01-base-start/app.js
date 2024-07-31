@@ -30,8 +30,10 @@ function printResult(sum) {
   resultElement.textContent = sum;
 }
 function computeWithAction(val1, val2, actionSymbol) {
-  const num1 = Number(val1.value);
-  const num2 = Number(val2.value);
+  const num1 = +val1.value;
+  const num2 = +val2.value;
+
+  // debugger;
 
   return actionSymbol == "+"
     ? num1 + num2

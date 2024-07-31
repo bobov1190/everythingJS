@@ -1,58 +1,60 @@
 // Event Loop
 
-// const timeout = setTimeout(() => {
-//   console.log('after 2 seconds')
-// }, 2000)
+// setTimeout
+// setInterval
+// setImmediate
+// requestAnimationFrame
 
-// clearTimeout(timeout)
+// const timeout = setTimeout(function () {
+//   console.log(1);
+// }, 2000);
 
-// setTimeout(() => {
-//   console.log('after 3 seconds')
-// }, 3000)
-// let count = 0
-// setInterval(() => {
-//   console.log('tick', ++count)
-// }, 1000)
+// clearTimeout(timeout);
+// let counter = 0;
+// setInterval(function () {
+//   console.log("tick", ++counter);
+// }, 2000);
 
 // function delay(callback, time = 1000) {
-//   setTimeout(callback, time)
+//   setTimeout(callback, time);
 // }
 
+// delay(function () {
+//   console.log(1);
+// });
+
 const delay = (time = 1000) => {
-  const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve([1, 2, 3])
-      // reject('Error in delay')
-    }, time)
-  })
-  return promise
-}
+  return new Promise((resolve, reject) => {
+    setTimeout(resolve, time);
+  });
+};
 
 // delay(2500)
-//   .then((data) => {
-//     console.log('Timeout', data)
-//     return data.map((x) => x ** 2)
+//   .then(() => {
+//     console.log("timeout");
 //   })
-//   .then((data) => {
-//     console.log(data)
+//   .catch(() => {
+//     console.log("error");
 //   })
-//   .catch((err) => {
-//     console.log(err)
-//   })
-//   .finally(() => console.log('Finally'))
+//   .finally(() => {
+//     console.log("finally");
+//   });
 
-const getData = () => new Promise((resolve) => resolve([1, 2, 3]))
+const getData = () =>
+  new Promise((resolve, reject) => {
+    resolve([1, 2, 3]);
+  });
 
 async function asyncExample() {
   try {
-    await delay(3000)
-    const data = await getData()
-    console.log(data)
-  } catch (err) {
-    console.log(err)
+    await delay(2000);
+    const data = await getData();
+    console.log(data);
+  } catch (error) {
+    console.log(error);
   } finally {
-    console.log('Finally')
+    console.log("finally");
   }
 }
 
-asyncExample()
+asyncExample();
