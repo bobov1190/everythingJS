@@ -3,7 +3,7 @@
 #### 1 . [JavaScript c Нуля - Курс для начинающих с практикой БЕЗ ВОДЫ](https://youtu.be/fcMcf_4PjfI?si=qORno0joDhUwzpYe) by Vladilen Minin :
 #####  The result is four projects : 
 ######    1 . Calculator - https://bobov1190.github.io/calcByMininLesson/
-######    2 . 
+######    2 . Notes - https://bobov1190.github.io/notesByMininLesson/
 ######    3 . 
 ######    4 . 
 
