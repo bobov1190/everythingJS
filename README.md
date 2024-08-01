@@ -7,5 +7,5 @@
 #####    3 . TimeAndDate - https://bobov1190.github.io/timeByMininLesson/
 #####    4 . ListOfUsers - https://bobov1190.github.io/listUsersByMininLesson/
 
-#### 2 . [JavaScript Tutorial Full Course - Beginner to Pro (2024)](https://youtu.be/EerdGm-ehJQ?si=SdrSn6hbWKn7m2GR) by SuperSimpleDev
-  Havent finished yet
+### 2 . [JavaScript Tutorial Full Course - Beginner to Pro (2024)](https://youtu.be/EerdGm-ehJQ?si=SdrSn6hbWKn7m2GR) by SuperSimpleDev
+####  Havent finished yet
