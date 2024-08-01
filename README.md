@@ -1,6 +1,6 @@
 ### These are the results of my studies in different courses, videos and etc
 
-1 . [JavaScript c Нуля - Курс для начинающих с практикой БЕЗ ВОДЫ](https://youtu.be/fcMcf_4PjfI?si=qORno0joDhUwzpYe) by Vladilen Minin : 
+1 . [JavaScript c Нуля - Курс для начинающих с практикой БЕЗ ВОДЫ](https://youtu.be/fcMcf_4PjfI?si=qORno0joDhUwzpYe) by Vladilen Minin : \n
   The result is four projects : 
   1 . Calculator - https://bobov1190.github.io/calcByMininLesson/
   2 . 
