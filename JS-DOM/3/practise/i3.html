@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World</h1>
+
+    <ul class="stars-list">
+        <li class="star">AUDI</li>
+        <li>Mers</li>
+        <li class="star">BMW</li>
+        <li>Mazda</li>
+    </ul>
+
+    <div id="div_id">
+        Блок DIV_ID
+    </div>
+    <script>
+        // Нахождение элемента по его ID
+        let divItem = document.getElementById('div_id');
+        console.log(divItem);
+        
+        // Нахождение всех элементов li внутри объекта ul
+        let list = document.querySelectorAll('ul>li')
+        console.log(list)
+        // Перебирание всех по отдельности
+        for(let el of list) {
+            console.log(el)
+        }
+
+        // Нахождение первого элемента из всех li внутри объекта ul
+        let list2 = document.querySelectorAll('ul>li:first-child');
+        for(let el of list2) {
+            console.log(el)
+        }
+
+        // Нахождение первого элемента li внутри объекта ul
+        let list3 = document.querySelector('ul>li');
+        console.log(list3)
+
+        // Нахождение объекта по его селектору
+
+        let list4 = document.querySelectorAll('ul>li');
+        for(let el of list4) {
+            if(el.matches("li.star")) console.log(el)
+        }
+
+        // Нахождение близкого объекта для нашего li объекта по его селектору
+        let li = document.querySelector(".star");
+        console.log(li.closest('.stars-list'));
+        console.log(li.closest('h1')); // null
+
+        // Проверка содержит ли объект ul объект li
+        let ul = document.querySelector(".stars-list");
+
+        if(ul.contains(li)) {
+            console.log('li is in ul')
+        }
+
+        // Выбор определенного объекта внутри одного
+
+        let element = document.querySelectorAll("ul > li");
+        console.log(element[1])
+
+
+    </script>
+</body>
+</html>

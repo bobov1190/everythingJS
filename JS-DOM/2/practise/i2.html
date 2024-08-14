@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head><body> <!-- Здесь я так впиндюрил для NextSibling и его брата чтобы не было текста между ними -->
+
+    <table id="table_digs">
+        <tr>
+            <td>один</td><td>два</td>
+        </tr>
+    </table>
+    <script>
+        // выбрать теги-объекты <html>, <head> и <body>, используются следующие свойства:
+
+        let html = document.documentElement;
+        let body = document.body;
+        let head = document.head;
+        console.log(html, body, head);
+
+        // Перебирание всех дочерних элементов в body
+        // Из-за того что сами эти объекты имеют псевдомассивы
+
+        for (let child of document.body.childNodes) {
+            console.log( child );
+        }
+
+        // Если хотим сделать массив
+
+        let arr = Array.from(document.body.childNodes);
+
+        console.log(arr)
+
+        // Перебирание всех дочерних элементов в body c массива
+        arr.forEach((el) => console.log(el));
+
+
+        // firstChild and LastChild
+
+        // let html = document.documentElement;
+        let first = html.firstChild;
+        let last = html.lastChild;
+        
+        console.log( first );         //head
+        console.log( last );          //body
+
+        // let html = document.documentElement;
+        console.log( html.hasChildNodes() );
+
+        // Нахождение только дочерних элементов без текстов и омментариев
+
+        for (let child of document.documentElement.children) {
+            console.log( child );
+        }
+
+        console.log(document.head.nextSibling);
+        console.log(document.body.previousSibling);
+
+        // Нахождение родительского объекта
+
+        // let html = document.documentElement;
+        console.log( html.parentNode ); // выведет document
+        console.log( html.parentElement ); // выведет null
+        console.log( body.parentElement ); // выведет null
+
+        console.log( table_digs.rows[0].cells[1].innerHTML )
+    </script>
+</body>
+</html>

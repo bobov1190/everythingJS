@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td[data-cell-red="#CC0000"] {
+            background: #CC0000;
+        }
+        td[data-cell-red="lightRed"] {
+            background: #FF9999;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="comm" defit="hello">Messanger</div>
+
+    <input title="text" type="text" class="inp" checked>
+
+    <table><tr>
+        <td cell-red="#CC0000">1</td><td cell-blue="#0000CC">2</td>
+        <td cell-red="#CC0000">3</td><td cell-blue="#0000CC">4</td>
+     </tr>
+     <tr>
+        <td cell-blue="#0000CC">5</td><td cell-red="#CC0000">6</td>
+        <td cell-blue="#0000CC">7</td><td cell-red="#CC0000">8</td>
+     </tr></table>
+
+
+     <table><tr>
+        <td data-cell-red="#CC0000">1</td>
+        <td data-cell-blue="#0000CC">2</td>
+        <td data-cell-red="#CC0000">3</td>
+        <td data-cell-blue="#0000CC">4</td>
+     </tr>
+     <tr>
+        <td data-cell-blue="#0000CC">5</td>
+        <td data-cell-red="#CC0000">6</td>
+        <td data-cell-blue="#0000CC">7</td>
+        <td data-cell-red="#CC0000">8</td>
+     </tr></table>
+
+
+    <script>
+        let body = document.body;
+        body.myStyle = {
+            color: 'red',
+            fontSize: 20
+        }
+
+        body.getFontSize = function() {
+            return this.myStyle.fontSize;
+        }
+
+        console.log(body.getFontSize())
+
+        console.dir(body)
+
+        // Вывод в консоль стандартного аттрибута 
+        const div = document.querySelector('#comm')
+        console.dir(div.id)
+
+        // Изменение значения атрибутов
+        console.log( div.getAttribute('defit') )
+        div.setAttribute("defit", "новое");
+        console.log( div.getAttribute('defit') )
+
+        // Вывод всех аттрибутов в консоль 
+        for(let el of div.attributes) 
+            console.log(el)
+
+        // Проверка типа данных атрибута
+        const inp = document.querySelector('.inp')
+        console.log( typeof inp.checked )
+
+        for(let cell of document.querySelectorAll('[cell-red]')) {
+            let attr = cell.getAttribute('cell-red');
+            cell.style.background = attr;
+            cell.style.color = "#FFFFFF";
+        }
+
+        let flSkip = false;
+        for(let cell of document.querySelectorAll('[data-cell-red]')) {
+            if(!flSkip) cell.dataset.cellRed = 'lightRed';
+            flSkip = !flSkip;
+        }
+    </script>
+</body>
+</html>

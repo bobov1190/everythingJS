@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body><!-- This is comment --><h1>hELLO</h1>
+
+    <div id="comm">Сообщения от пользователей</div>
+
+    <script>
+
+        const yourCom = document.querySelector('#comm')
+
+        // Нахождение класса DOM-узла для body
+        console.log( document.body.constructor.name );
+
+        // или же можно проверить наследование с помощью оператора instanceof
+        console.log( document.body instanceof HTMLBodyElement ); // true
+        console.log( document.body instanceof HTMLElement ); // true
+        console.log( document.body instanceof Element ); // true
+        console.log( document.body instanceof Text ); // false
+
+        // Если мы хотим отобразить в консоле структуру объекта
+        console.dir(document.body);
+
+        // а если записать
+        console.log(document.body);
+
+        // У всех без исключения DOM-узлов имеется свойство nodeName, содержащее его название
+
+        let comm = document.body.firstChild; // получение комментария
+        console.log(comm.nodeName); // Какой класс в DOM-узле
+        console.log(document.body.nodeName); // Какой класс в DOM-узле
+        
+        console.log(comm.tagName); // не тег
+        console.log(document.body.tagName); // тег
+
+        // вывод внутреннего кода определенного объекта
+        let h1 = document.body.firstChild.nextSibling;
+
+        console.log(h1.innerHTML);
+
+        // Изменение внутреннего кода определенного объекта
+        h1.innerHTML = "Измененный <u>заголовок</u>";
+
+        // Добавление кода определенному объекту
+        h1.innerHTML += " с добавленным текстом";
+
+        // Изменение тега , но свойства прошлого тега остаются
+        h1.outerHTML = "<h2>Измененный <u>заголовок</u> из h1 в h2";
+
+        //То есть, мы на странице заменили этот заголовок, но в переменной прежняя информация продолжает существовать.
+        console.dir(h1);
+        console.log(h1.outerHTML);
+
+
+        // Вывод внутренних данных с комментария
+        console.log(comm.data);
+
+        // Вывод чистого текста без тегов и тд 
+        console.log(document.body.textContent);
+
+        // Метод hidden
+        let comment = document.getElementById("comm");
+        // comment.hidden = true;
+
+        setInterval(()=> comment.hidden = !comment.hidden, 500 );
+    </script>
+</body>
+</html>
