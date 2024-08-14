@@ -1,0 +1,1 @@
+Those are solutions for tasks from Exercism !
